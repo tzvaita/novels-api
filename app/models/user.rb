@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :novels
+  has_many :novels, dependent: :destroy
   has_many :likes, class_name: "Favorite",
                     foreign_key: "liker_id",
                     dependent: :destroy
