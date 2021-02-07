@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :novels
+  has_many :likes, class_name: "Favorite",
+                    foreign_key: "liker_id",
+                    dependent: :destroy
+  has_many :liking, through: :likes, source: :liked
 end
