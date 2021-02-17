@@ -1,5 +1,6 @@
 class NovelsController < ApplicationController
   before_action :set_novel, only: [:show, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /novels
   def index
